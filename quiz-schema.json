@@ -1,0 +1,179 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "Quiz Jaspion - Herói do Espaço",
+  "description": "Quiz interativo sobre o super-herói Jaspion baseado em imagens",
+  "author": {
+    "@type": "Person",
+    "name": "Quiz Master"
+  },
+  "datePublished": "2026-04-08",
+  "educationalLevel": "GeneralEducation",
+  "about": {
+    "@type": "Thing",
+    "name": "Jaspion",
+    "description": "Super-herói do tokusatsu que veio de outra dimensão para proteger a Terra"
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "@id": "#question1",
+      "position": 1,
+      "name": "Qual é o verdadeiro nome do herói Jaspion?",
+      "image": "1.png",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ryo Shimizu"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Takeshi Yamamoto"
+        },
+        {
+          "@type": "Answer",
+          "text": "Goro Nakamura"
+        },
+        {
+          "@type": "Answer",
+          "text": "Hiroshi Tanaka"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "#question2",
+      "position": 2,
+      "name": "De qual planeta/dimensão Jaspion veio para proteger a Terra?",
+      "image": "2.png",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dimensão Jaspion"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Planeta Phantom"
+        },
+        {
+          "@type": "Answer",
+          "text": "Planeta Zimba"
+        },
+        {
+          "@type": "Answer",
+          "text": "Galáxia de Orion"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "#question3",
+      "position": 3,
+      "name": "Qual é a principal transformação/modo de poder de Jaspion?",
+      "image": "3.png",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modo Super Jaspion"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Forma Dourada"
+        },
+        {
+          "@type": "Answer",
+          "text": "Transformação Cósmica"
+        },
+        {
+          "@type": "Answer",
+          "text": "Poder Infinito"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "#question4",
+      "position": 4,
+      "name": "Qual é o nome da organização malévola que Jaspion combate?",
+      "image": "4.png",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exército Zimba"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Organização Makai"
+        },
+        {
+          "@type": "Answer",
+          "text": "Força Sombria"
+        },
+        {
+          "@type": "Answer",
+          "text": "Tribo Demoníaca"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "#question5",
+      "position": 5,
+      "name": "Qual é o nome do dispositivo/arma especial de Jaspion?",
+      "image": "5.png",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jaspion Sword"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "Jaspy Cutter"
+        },
+        {
+          "@type": "Answer",
+          "text": "Laser Blade"
+        },
+        {
+          "@type": "Answer",
+          "text": "Power Buster"
+        }
+      ]
+    },
+    {
+      "@type": "Question",
+      "@id": "#question6",
+      "position": 6,
+      "name": "Em que ano o tokusatsu 'Jaspion' foi ao ar pela primeira vez?",
+      "image": "6.png",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1984"
+      },
+      "suggestedAnswer": [
+        {
+          "@type": "Answer",
+          "text": "1983"
+        },
+        {
+          "@type": "Answer",
+          "text": "1985"
+        },
+        {
+          "@type": "Answer",
+          "text": "1982"
+        }
+      ]
+    }
+  ],
+  "numberOfQuestions": 6,
+  "difficulty": "Medium",
+  "keywords": [
+    "Jaspion",
+    "Tokusatsu",
+    "Super-herói",
+    "Quiz",
+    "Trivia",
+    "Série infantil"
+  ]
+}

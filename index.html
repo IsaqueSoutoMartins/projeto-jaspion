@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Jaspion - Herói do Espaço</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Quiz",
+        "name": "Quiz Jaspion - Herói do Espaço",
+        "description": "Quiz interativo sobre o super-herói Jaspion com imagens",
+        "author": {
+            "@type": "Person",
+            "name": "Quiz Master"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Jaspion"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- TELA DE LOGIN -->
+        <div id="loginScreen" class="screen active">
+            <div class="login-box">
+                <div class="logo">
+                    <h1>🌟 JASPION 🌟</h1>
+                    <p class="subtitle">Herói do Espaço</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Usuário:</label>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            placeholder="Digite seu usuário"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Digite sua senha"
+                            required
+                        >
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+                
+                <div class="toggle-signup">
+                    <p>Novo por aqui? <a href="#" id="toggleSignup">Criar conta</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA DE CADASTRO -->
+        <div id="signupScreen" class="screen">
+            <div class="login-box">
+                <div class="logo">
+                    <h1>🌟 JASPION 🌟</h1>
+                    <p class="subtitle">Criar Nova Conta</p>
+                </div>
+                
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupUsername">Usuário:</label>
+                        <input 
+                            type="text" 
+                            id="signupUsername" 
+                            placeholder="Escolha um usuário"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signupPassword">Senha:</label>
+                        <input 
+                            type="password" 
+                            id="signupPassword" 
+                            placeholder="Digite sua senha"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirmar Senha:</label>
+                        <input 
+                            type="password" 
+                            id="signupConfirm" 
+                            placeholder="Confirme sua senha"
+                            required
+                        >
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Criar Conta</button>
+                </form>
+                
+                <div class="toggle-signup">
+                    <p>Já tem conta? <a href="#" id="toggleLogin">Fazer login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA PRINCIPAL (Menu) -->
+        <div id="mainScreen" class="screen">
+            <header class="header">
+                <div class="header-content">
+                    <h1>⚡ QUIZ JASPION ⚡</h1>
+                    <div class="user-info">
+                        <span id="welcomeUser"></span>
+                        <button id="logoutBtn" class="btn btn-secondary">Sair</button>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="home">Home</button>
+                <button class="tab-btn" data-tab="quiz">Quiz</button>
+                <button class="tab-btn" data-tab="history">Histórico</button>
+                <button class="tab-btn" data-tab="profile">Perfil</button>
+            </nav>
+
+            <!-- ABA HOME -->
+            <div id="home" class="tab-content active">
+                <div class="home-container">
+                    <h2>Bem-vindo ao Quiz Jaspion!</h2>
+                    <p>Teste seus conhecimentos sobre o Super-Herói Jaspion com nosso quiz interativo baseado em imagens.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalQuizzes">0</div>
+                            <div class="stat-label">Quizzes Realizados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="averageScore">0%</div>
+                            <div class="stat-label">Pontuação Média</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="bestScore">0%</div>
+                            <div class="stat-label">Melhor Pontuação</div>
+                        </div>
+                    </div>
+
+                    <button id="startQuizBtn" class="btn btn-large">Começar Quiz</button>
+                </div>
+            </div>
+
+            <!-- ABA QUIZ -->
+            <div id="quiz" class="tab-content">
+                <div id="quizContainer" class="quiz-container" style="display: none;">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <p id="questionNumber">Pergunta 1 de 6</p>
+                    </div>
+
+                    <div class="quiz-content">
+                        <img id="quizImage" src="" alt="Imagem do Quiz" class="quiz-image">
+                        
+                        <div class="question-section">
+                            <h3 id="questionText" class="question-text"></h3>
+                            
+                            <div id="answersContainer" class="answers-container"></div>
+                        </div>
+
+                        <div class="quiz-buttons">
+                            <button id="prevBtn" class="btn btn-secondary" disabled>Anterior</button>
+                            <button id="nextBtn" class="btn btn-primary" disabled>Próxima</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quizPlaceholder" class="quiz-placeholder">
+                    <p>Clique no botão "Começar Quiz" para iniciar!</p>
+                </div>
+
+                <div id="quizResult" class="quiz-result" style="display: none;">
+                    <h2>Quiz Concluído! 🎉</h2>
+                    <div class="result-card">
+                        <p class="result-label">Sua Pontuação:</p>
+                        <p class="result-score" id="finalScore">0 / 6</p>
+                        <p class="result-percentage" id="finalPercentage">0%</p>
+                    </div>
+
+                    <div id="resultFeedback" class="result-feedback"></div>
+
+                    <button id="retakeQuizBtn" class="btn btn-primary">Fazer Quiz Novamente</button>
+                </div>
+            </div>
+
+            <!-- ABA HISTÓRICO -->
+            <div id="history" class="tab-content">
+                <div class="history-container">
+                    <h2>Seu Histórico de Quizzes</h2>
+                    
+                    <div id="historyList" class="history-list">
+                        <p class="empty-message">Você ainda não realizou nenhum quiz.</p>
+                    </div>
+
+                    <button id="clearHistoryBtn" class="btn btn-danger" style="display: none;">Limpar Histórico</button>
+                </div>
+            </div>
+
+            <!-- ABA PERFIL -->
+            <div id="profile" class="tab-content">
+                <div class="profile-container">
+                    <h2>Meu Perfil</h2>
+                    
+                    <div class="profile-content">
+                        <!-- Informações do Perfil -->
+                        <div id="profileView" class="profile-view">
+                            <div class="profile-card">
+                                <div class="profile-header">
+                                    <div class="profile-avatar">👤</div>
+                                    <h3 id="profileUsername"></h3>
+                                </div>
+
+                                <div class="profile-info">
+                                    <div class="info-item">
+                                        <label>Usuário:</label>
+                                        <span id="infoUsername"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Data de Criação:</label>
+                                        <span id="infoDateCreated"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Total de Quizzes:</label>
+                                        <span id="infoTotalQuizzes"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Pontuação Média:</label>
+                                        <span id="infoAverageScore"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Melhor Pontuação:</label>
+                                        <span id="infoBestScore"></span>
+                                    </div>
+                                </div>
+
+                                <div class="profile-actions">
+                                    <button id="editProfileBtn" class="btn btn-primary">✏️ Editar Perfil</button>
+                                    <button id="deleteProfileBtn" class="btn btn-danger">🗑️ Excluir Perfil</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Formulário de Edição -->
+                        <div id="profileEdit" class="profile-edit" style="display: none;">
+                            <div class="profile-card">
+                                <h3>Editar Perfil</h3>
+                                
+                                <form id="editProfileForm">
+                                    <div class="form-group">
+                                        <label for="editUsername">Novo Usuário:</label>
+                                        <input 
+                                            type="text" 
+                                            id="editUsername" 
+                                            placeholder="Deixe em branco para não alterar"
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="editPassword">Nova Senha:</label>
+                                        <input 
+                                            type="password" 
+                                            id="editPassword" 
+                                            placeholder="Deixe em branco para não alterar"
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="editPasswordConfirm">Confirmar Nova Senha:</label>
+                                        <input 
+                                            type="password" 
+                                            id="editPasswordConfirm" 
+                                            placeholder="Confirme a nova senha"
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="currentPassword">Senha Atual (obrigatória):</label>
+                                        <input 
+                                            type="password" 
+                                            id="currentPassword" 
+                                            placeholder="Digite sua senha atual para confirmar"
+                                            required
+                                        >
+                                    </div>
+
+                                    <div class="edit-buttons">
+                                        <button type="submit" class="btn btn-primary">💾 Salvar Mudanças</button>
+                                        <button type="button" id="cancelEditBtn" class="btn btn-secondary">❌ Cancelar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Confirmação de Exclusão -->
+                        <div id="deleteConfirm" class="delete-confirm" style="display: none;">
+                            <div class="profile-card delete-card">
+                                <h3>⚠️ Excluir Perfil - Ação Irreversível</h3>
+                                
+                                <p class="warning-text">
+                                    Tem certeza que deseja excluir sua conta? Esta ação é <strong>irreversível</strong> e:
+                                </p>
+
+                                <ul class="warning-list">
+                                    <li>❌ Todos os seus dados serão deletados permanentemente</li>
+                                    <li>❌ Todo o histórico de quizzes será perdido</li>
+                                    <li>❌ A conta não poderá ser recuperada</li>
+                                    <li>❌ Um log será registrado da exclusão</li>
+                                </ul>
+
+                                <div class="confirm-group">
+                                    <label for="deleteConfirmPassword">Digite sua senha para confirmar exclusão:</label>
+                                    <input 
+                                        type="password" 
+                                        id="deleteConfirmPassword" 
+                                        placeholder="Sua senha"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="delete-buttons">
+                                    <button id="confirmDeleteBtn" class="btn btn-danger">🗑️ Sim, Excluir Minha Conta</button>
+                                    <button id="cancelDeleteBtn" class="btn btn-secondary">❌ Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
