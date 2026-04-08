@@ -2,6 +2,13 @@
 
 ## 🏗️ Arquitetura do Projeto
 
+
+
+
+
+
+
+
 ### Estrutura Cliente-Side (No Navegador)
 
 O projeto é totalmente desenvolvido em **HTML, CSS e JavaScript** puro (Vanilla JS), sem dependências externas.
